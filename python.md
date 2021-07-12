@@ -74,3 +74,52 @@ python里万物皆对象，类也是对象噢~
 通过Money变量，找到Money这个类对象，类对象里的count属性，再到关联的值2
 
 上代码= ``class Money:count=2``
+
+查询：一个对象要是访问一个属性，它会优先到自己的属性里找，没有的话就到类里找
+
+``class Money:
+    age = 18
+    count =1``
+
+``one = Money()``
+
+``one.age=20``
+
+``print(one.age)``=20
+
+``print(one.count)``=1
+
+*内存问题*:属性存储在__dict__的字典中，一般对象可以直接修改__dict__属性，但类对象的__dict__为**只读**，无法修改。
+
+增：
+
+``class Person:``
+
+``__slots__=['a']``
+ 
+ ``pass``
+ 限制Person对象只能增加'a'属性
+
+ ### 1.4方法相关
+
+ 方法：和函数类似，封装了一系列行为动作，被调用之后能执行这些行为动作。区别是调用方式。
+
+ 函数调用：
+ 
+ ``def eat():``
+
+``print(1)  print(2)``
+    
+``eat()``（直接用）
+
+
+方法调用：
+
+    class Person:
+       def eat2(self):
+          print(1)
+          print(3)
+        
+    p=Person()
+    p.eat2()
+（对象.方法）eg.  pd.DataFrame
