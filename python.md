@@ -123,3 +123,41 @@ python里万物皆对象，类也是对象噢~
     p=Person()
     p.eat2()
 （对象.方法）eg.  pd.DataFrame
+
+实例方法、类方法、静态方法：
+
+    class Person:
+        def shili(self):
+            print("实例方法",self)
+            
+        @classmethod    
+        def lei(cls):
+            print("类方法",cls)
+        
+        @staticmethod
+        def jingtai():
+            print("静态方法")
+
+
+    p=Person()
+
+    p.shili() //接收的第一个参数要是实例参数
+
+    p.lei() //接收的第一个参数要是类参数
+
+Person.shili()是错的，因为Person不是实例参数，但是p.lei()可以，它会根据这个实例，把对应的类传递过来。
+
+静态方法不要求
+
+**注** ： 三种方法全部存在类的dict字典里
+
+实例方法：
+    
+    class Person:
+        def eat(self,food,drink):
+            print("I'm eatting,",food,drink)
+        
+    p=Person()
+    p.eat("新疆炒米粉,","cola") 
+
+奇怪？eat里有三个参数呀，但是p.eat里面只有两个，因为在p.调用的时候，已经自动把self实例参数给对象p了。
